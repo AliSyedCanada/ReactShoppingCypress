@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://react-shopping-cart-67954.firebaseapp.com/",
+  "reporter": "cypress-multi-reporters",
+  "ignoreTestFiles": "*.po.js",
+  "reporterOptions": {
+    "configFile": "reporterOptions.json"
+  },
+  "projectId": "u7qxjt"
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="7.604" tests="5" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-06-18T14:15:23" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="React Shopping Application" timestamp="2019-06-18T14:15:23" tests="5" failures="0" time="7.604">
+    <testcase name="React Shopping Application Cart should contains zero products" time="3.018" classname="Cart should contains zero products">
+    </testcase>
+    <testcase name="React Shopping Application Add a product to cart and it should have one product" time="2.782" classname="Add a product to cart and it should have one product">
+    </testcase>
+    <testcase name="React Shopping Application Remove the product from cart and now it should show zero products in cart" time="0.674" classname="Remove the product from cart and now it should show zero products in cart">
+    </testcase>
+    <testcase name="React Shopping Application Sorting with Lowest to Highest Price" time="0.54" classname="Sorting with Lowest to Highest Price">
+    </testcase>
+    <testcase name="React Shopping Application Sorting with Highest to Lowest Price" time="0.59" classname="Sorting with Highest to Lowest Price">
+    </testcase>
+  </testsuite>
+</testsuites>

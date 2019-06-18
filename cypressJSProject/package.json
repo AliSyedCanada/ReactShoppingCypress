@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "combine-reports": "mochawesome-merge --reportDir cypress/reports/mocha > mochareports/report.json",
+        "generate-reports": "marge mochareports/report.json -f report -o mochareports"
+    },
+    "devDependencies": {
+        "cypress": "^3.3.1",
+        "cypress-multi-reporters": "^1.1.22",
+        "cypress-xpath": "^1.4.0",
+        "mocha": "^6.1.4",
+        "mocha-junit-reporters": "^1.23.6",
+        "mochawesome": "^4.0.1",
+        "mochawesome-merge": "^2.0.1",
+        "mochawesome-report-generator": "^4.0.0"
+    }
+}

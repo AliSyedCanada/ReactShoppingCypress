@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-06-18T14:28:41.011Z",
+    "end": "2019-06-18T14:28:56.703Z",
+    "duration": 15692,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6c0b65fc-3773-4885-9286-4ead5924bdab",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "185cccd9-a467-448c-b59a-406bf2b694fa",
+          "title": "React Shopping Application",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cart should contains zero products",
+              "fullTitle": "React Shopping Application Cart should contains zero products",
+              "timedOut": null,
+              "duration": 5471,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_shopping.shoppingPage.openCart();\ncy.get('.bag__quantity').invoke('text').as('bagCartText');\ncy.get('@bagCartText').then(function ($text) {\n  expect($text).to.eql('0');\n});\n_shopping.shoppingPage.closeCart();",
+              "err": {},
+              "uuid": "aa71ae7b-c15a-46fc-bdd4-96d2339b09c3",
+              "parentUUID": "185cccd9-a467-448c-b59a-406bf2b694fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add a product to cart and it should have one product",
+              "fullTitle": "React Shopping Application Add a product to cart and it should have one product",
+              "timedOut": null,
+              "duration": 4519,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('@items').then(function (items) {\n  cy.get('.shelf-container').find('p').contains(items.tshirt).parent().find('.val').find('b').should(function ($dollarCost) {\n    dollar = $dollarCost.text();\n  });\n});\ncy.get('@items').then(function (items) {\n  cy.get('.shelf-container').find('p').contains(items.tshirt).parent().find('.val').find('span').should(function ($centCost) {\n    cents = $centCost.text();\n  });\n});\ncy.get('@items').then(function (items) {\n  _shopping.shoppingPage.selectItem(items.tshirt);\n});\ncy.get('.bag__quantity').should(function ($bagCart) {\n  var text = $bagCart.text();\n  expect(text).to.eql('1');\n});\nvar subTotal;\ncy.get('.sub-price__val').should(function ($subTotal) {\n  var text = $subTotal.text();\n  subTotal = '$ ' + dollar + '' + cents;\n  expect(subTotal).to.eql(text);\n});\n_shopping.shoppingPage.checkoutCart();\ncy.on('window:confirm', function (str) {\n  expect(str).to.eq(\"Checkout - Subtotal: \".concat(subTotal));\n  return true;\n});\n_shopping.shoppingPage.closeCart();",
+              "err": {},
+              "uuid": "7ee9d0ed-705d-4976-8613-7326408bea2c",
+              "parentUUID": "185cccd9-a467-448c-b59a-406bf2b694fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Remove the product from cart and now it should show zero products in cart",
+              "fullTitle": "React Shopping Application Remove the product from cart and now it should show zero products in cart",
+              "timedOut": null,
+              "duration": 2339,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var self = this,\n    args = arguments;\nreturn new Promise(function (resolve, reject) {\n  var gen = fn.apply(self, args);\n  function _next(value) {\n    asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value);\n  }\n  function _throw(err) {\n    asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err);\n  }\n  _next(undefined);\n});",
+              "err": {},
+              "uuid": "9bec75a3-af05-4338-87bb-e12edb9ce3d5",
+              "parentUUID": "185cccd9-a467-448c-b59a-406bf2b694fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sorting with Lowest to Highest Price",
+              "fullTitle": "React Shopping Application Sorting with Lowest to Highest Price",
+              "timedOut": null,
+              "duration": 1193,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('select').select('lowestprice');\ncy.get('@items').then(function (items) {\n  cy.get('.shelf-container').find('p').contains(items.lowPriceTshirt).parent().find('.val').find('b').should(function ($dollarCost) {\n    dollar = $dollarCost.text();\n  });\n});\ncy.get('@items').then(function (items) {\n  cy.get('.shelf-container').find('p').contains(items.lowPriceTshirt).parent().find('.val').find('span').should(function ($centCost) {\n    cents = $centCost.text();\n    expect('$' + dollar + '' + cents).to.eql(items.lowestPrice);\n  });\n});",
+              "err": {},
+              "uuid": "b3a904f0-7ac9-433d-8295-f9adcbcb99f5",
+              "parentUUID": "185cccd9-a467-448c-b59a-406bf2b694fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Sorting with Highest to Lowest Price",
+              "fullTitle": "React Shopping Application Sorting with Highest to Lowest Price",
+              "timedOut": null,
+              "duration": 1624,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('select').select('highestprice');\ncy.get('@items').then(function (items) {\n  cy.get('.shelf-container').find('p').contains(items.highPriceTshirt).parent().find('.val').find('b').should(function ($dollarCost) {\n    dollar = $dollarCost.text();\n  });\n});\ncy.get('@items').then(function (items) {\n  cy.get('.shelf-container').find('p').contains(items.highPriceTshirt).parent().find('.val').find('span').should(function ($centCost) {\n    cents = $centCost.text();\n    expect('$' + dollar + '' + cents).to.eql(items.highestPrise);\n  });\n});",
+              "err": {},
+              "uuid": "080b4b7f-d6e9-4223-a357-7a529a3c3bed",
+              "parentUUID": "185cccd9-a467-448c-b59a-406bf2b694fa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa71ae7b-c15a-46fc-bdd4-96d2339b09c3",
+            "7ee9d0ed-705d-4976-8613-7326408bea2c",
+            "9bec75a3-af05-4338-87bb-e12edb9ce3d5",
+            "b3a904f0-7ac9-433d-8295-f9adcbcb99f5",
+            "080b4b7f-d6e9-4223-a357-7a529a3c3bed"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15146,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.1.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "useInlineDiffs": false
+      },
+      "version": "4.0.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.0.0"
+    }
+  }
+}
